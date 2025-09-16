@@ -5,24 +5,32 @@ namespace WorldCup;
 /**
  * Class to define the Ball
  */
-class Ball {
+class Ball
+{
     private $material;
-    
+    public function __construct($material)
+    {
+        $this->material = $material;
+    }
+
     /**
      * Get the Material
      */
-    public function getMaterial() {
+    public function getMaterial()
+    {
         return $this->material;
     }
 
     /**
      * Set the Material
      */
-    public function setMaterial($material) {
+    public function setMaterial($material)
+    {
         $this->material = $material;
     }
 
-    public function move() {
-        echo "moving\n"; 
+    public function move()
+    {
+        echo "moving\n";
     }
 }
