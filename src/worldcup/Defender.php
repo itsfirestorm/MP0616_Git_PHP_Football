@@ -2,8 +2,12 @@
 
 namespace WorldCup;
 
-class Defender {
+class Defender extends Player {
     public $mark;
+
+    public function __construct() {
+        $this->setPosition("Defender");
+    }
 
     public function steal(Ball $ball) {
         $effects = ["with fault", "without fault"];
