@@ -5,11 +5,13 @@ namespace WorldCup;
 /**
  * Class to define the midfielder
  */
+
+require_once __DIR__ . "/Player.php";
 class Midfielder extends Player {
     private $vision;
 
-    public function __construct() {
-        $this->setPosition("Midfielder");
+    public function __construct($team) {
+        parent::__construct($this->setPosition("Midfielder"), $team);
     }
 
     /**
@@ -27,6 +29,6 @@ class Midfielder extends Player {
     }
 
     public function organize() {
-        echo "organizing\n"; // En PHP no existe print1n, así que uso echo para que funcione.
+        echo "Organizing.<br>"; // En PHP no existe print1n, así que uso echo para que funcione.
     }
 }

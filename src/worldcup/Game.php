@@ -1,8 +1,16 @@
 <?php
 
 namespace WorldCup;
-
 use DateTime;
+
+require_once __DIR__ . '/Ball.php';
+require_once __DIR__ . '/Coach.php';
+require_once __DIR__ . '/Defender.php';
+require_once __DIR__ . '/Field.php';
+require_once __DIR__ . '/Forward.php';
+require_once __DIR__ . '/GoalKeeper.php';
+require_once __DIR__ . '/Midfielder.php';
+require_once __DIR__ . '/Team.php';
 
 $game = new Game();
 $game->main();
@@ -49,46 +57,45 @@ class Game {
     }
 
     public function main() {
-        echo "starting application\n";
-        
+        echo "starting application <br>";
         
         $this->setField(new Field(100));
         $this->setDate(new DateTime());
         $this->setBall(new Ball());
-
+        
         // create players team A
+        $teamA = new Team("NewTeam");
         $listA = [];
-        $listA[] = new Goalkeeper();
-        $listA[] = new Defender();
-        $listA[] = new Defender();
-        $listA[] = new Defender();
-        $listA[] = new Defender();
-        $listA[] = new Midfielder();
-        $listA[] = new Midfielder();
-        $listA[] = new Midfielder();
-        $listA[] = new Midfielder();
-        $listA[] = new Forward();
-        $listA[] = new Forward();
+        $listA[] = new Goalkeeper($teamA->getName());
+        $listA[] = new Defender($teamA->getName());
+        $listA[] = new Defender($teamA->getName());
+        $listA[] = new Defender($teamA->getName());
+        $listA[] = new Defender($teamA->getName());
+        $listA[] = new Midfielder($teamA->getName());
+        $listA[] = new Midfielder($teamA->getName());
+        $listA[] = new Midfielder($teamA->getName());
+        $listA[] = new Midfielder($teamA->getName());
+        $listA[] = new Forward($teamA->getName());
+        $listA[] = new Forward($teamA->getName());
 
         // create players team B
+        $teamB = new Team("Maped");
         $listB = [];
-        $listB[] = new Goalkeeper();
-        $listB[] = new Defender();
-        $listB[] = new Defender();
-        $listB[] = new Defender();
-        $listB[] = new Defender();
-        $listB[] = new Midfielder();
-        $listB[] = new Midfielder();
-        $listB[] = new Midfielder();
-        $listB[] = new Midfielder();
-        $listB[] = new Forward();
-        $listB[] = new Forward();
+        $listB[] = new Goalkeeper($teamB->getName());
+        $listB[] = new Defender($teamB->getName());
+        $listB[] = new Defender($teamB->getName());
+        $listB[] = new Defender($teamB->getName());
+        $listB[] = new Defender($teamB->getName());
+        $listB[] = new Midfielder($teamB->getName());
+        $listB[] = new Midfielder($teamB->getName());
+        $listB[] = new Midfielder($teamB->getName());
+        $listB[] = new Midfielder($teamB->getName());
+        $listB[] = new Forward($teamB->getName());
+        $listB[] = new Forward($teamB->getName());
 
-        $teamA = new Team("NewTeam");
         $teamA->setPlayers($listA);
         $teamA->setCoach(new Coach());
 
-        $teamB = new Team("Maped");
         $teamB->setPlayers($listB);
         $teamB->setCoach(new Coach());
 
@@ -102,21 +109,21 @@ class Game {
 
 
     public function start() {
-        echo "starting match actions...\n";
+        echo "starting match actions...<br>";
 
         for ($i = 0; $i < 10; $i++) {
-            echo "\n--- Action " . ($i + 1) . " ---\n";
+            echo "<br>--- Action " . ($i + 1) . " ---<br>";
 
             // select random team
             $teamIndex = array_rand($this->teams);
             $selectedTeam = $this->teams[$teamIndex];
-            echo "Team: " . $selectedTeam->getName() . "\n";
+            echo "Team: " . $selectedTeam->getName() . "<br>";
 
             // select random player
             $players = $selectedTeam->getPlayers();
             $playerIndex = array_rand($players);
             $selectedPlayer = $players[$playerIndex];
-            echo "Player type: " . (new \ReflectionClass($selectedPlayer))->getShortName() . "\n";
+            echo "Player type: " . (new \ReflectionClass($selectedPlayer))->getShortName() . "<br>";
 
             // common actions
             $selectedPlayer->run();
