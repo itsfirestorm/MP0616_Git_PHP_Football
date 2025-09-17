@@ -18,7 +18,7 @@ class Person {
     }
 
     public function run() {
-        echo "running";
+        echo "Running: ";
     }
 }
 ?>

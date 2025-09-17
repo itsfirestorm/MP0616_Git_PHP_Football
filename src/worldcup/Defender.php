@@ -2,17 +2,19 @@
 
 namespace WorldCup;
 
+require_once __DIR__ . "/Player.php";
+
 class Defender extends Player {
     public $mark;
 
-    public function __construct() {
-        $this->setPosition("Defender");
+    public function __construct($team) {
+        parent::__construct($this->setPosition("Defender"), $team);
     }
 
     public function steal(Ball $ball) {
-        $effects = ["with fault", "without fault"];
+        $effects = ["with fault. ", "without fault. "];
         $effect = $effects[array_rand($effects)];
-        echo "steals the ball $effect\n";
+        echo "Steals the ball $effect<br>";
     }
 
     /**
