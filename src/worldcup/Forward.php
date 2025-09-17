@@ -8,6 +8,10 @@ namespace WorldCup;
 class Forward extends Player {
     public $killer; 
 
+    public function __construct() {
+        $this->setPosition("Forward");
+    }
+
     public function drible() {
         echo "dribbling\n";
     }

@@ -8,6 +8,10 @@ namespace WorldCup;
 class Midfielder extends Player {
     private $vision;
 
+    public function __construct() {
+        $this->setPosition("Midfielder");
+    }
+
     /**
      * Get the vision
      */
