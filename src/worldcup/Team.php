@@ -15,11 +15,7 @@ class Team {
     }
 
     public function play() {
-        echo "playing\n";
-    }
-
-    public function attack() {
-        echo "attacking\n";
+        echo "playing<br>";
     }
 
     /**

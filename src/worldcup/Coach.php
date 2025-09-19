@@ -2,11 +2,12 @@
 
 namespace WorldCup;
 
+require_once __DIR__ . "/Person.php";
 class Coach extends Person {
     private $style; 
 
     public function train() {
-        echo "train\n";
+        echo "train<br>";
     }
 
     /**

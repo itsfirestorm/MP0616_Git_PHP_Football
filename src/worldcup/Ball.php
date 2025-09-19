@@ -8,10 +8,6 @@ namespace WorldCup;
 class Ball
 {
     private $material;
-    public function __construct($material)
-    {
-        $this->material = $material;
-    }
 
     /**
      * Get the Material
@@ -31,6 +27,6 @@ class Ball
 
     public function move()
     {
-        echo "moving\n";
+        echo "moving<br>";
     }
 }

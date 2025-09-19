@@ -23,6 +23,6 @@ class Field {
     }
 
     public function light() {
-        echo "switching the lights\n";
+        echo "switching the lights<br>";
     }
 }
